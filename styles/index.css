@@ -1,0 +1,127 @@
+/* STYLE DE LA LANDING PAGE */
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.landing-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -1;
+    width: 1000px;
+    opacity: 0;
+}
+
+.landing-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 352px;
+}
+
+.landing-title h2:first-child {
+    font-size: 40px;
+    text-align: center;
+    opacity: 0;
+}
+.landing-title h2:last-child {
+    font-size: 32px;
+    text-align: center;
+    opacity: 0;
+}
+
+.scroll-btn {
+    margin-top: auto;
+    margin-bottom: 64px;
+    transition: 0.2s ease-in-out;
+}
+.scroll-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Style de la zone de presentation */
+.presentation-zone {
+    padding: 128px 256px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+}
+
+.presentation-zone>* {
+    opacity: 0;
+}
+
+.presentation-img {
+    position: absolute;
+    right: 100px;
+    bottom: -30%;
+    z-index: -1;
+    width: 550px;
+}
+
+/* ZONE DECOUVRIR LE SITE */
+.discover-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 256px 0px;
+}
+
+.discover-zone h3,
+.discover-zone a {
+    opacity: 0;
+}
+
+.discover-img-zone {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+}
+
+.discover-img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+}
+
+.discover-img {
+    width: 300px;
+    filter: grayscale(1);
+    transition: 0.4s;
+}
+.discover-img:hover {
+    filter: grayscale(0);
+    transform: scale(1.01);
+}
+
+.discover-btn {
+    transition: 0.2s ease-in-out;
+}
+.discover-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animation pour la fonction Addclass */
+.FadeIn {
+    animation: FadeIn 2s forwards ease-in-out;
+}
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
