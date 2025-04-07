@@ -73,6 +73,15 @@ img {
     width: 100%;
 }
 
+/* Style du canvas */
+.fire-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Les clics passent à travers */
+    z-index: -1; /* Le canvas est derrière tout le contenu */
+}
+
 /* STYLE DU HEADER */
 .header-bg {
     background-image: url(../assets/img_general/HeaderFond.png);

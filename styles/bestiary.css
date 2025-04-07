@@ -1,0 +1,58 @@
+/* STYLE DE LA LANDING PAGE */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    min-height: 100vh;
+}
+
+.landing-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -1;
+    width: 1200px;
+    opacity: 0;
+}
+
+.landing-line {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 256px);
+    margin-bottom: 128px;
+}
+
+.landing-title {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0;
+}
+
+.landing-title h2 {
+    font-size: 32px;
+}
+
+.scroll-btn {
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+.scroll-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animation pour la fonction Addclass */
+.FadeIn {
+    animation: FadeIn 2s forwards ease-in-out;
+}
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
