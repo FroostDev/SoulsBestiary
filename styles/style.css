@@ -82,6 +82,24 @@ img {
     z-index: -1; /* Le canvas est derrière tout le contenu */
 }
 
+/* Style du bouton pour monter en haut de la page */
+.scroll-up-btn {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    transition: 0.2s ease-in-out;
+    transform: rotate(180deg);
+    opacity: 0;
+    pointer-events: none;
+}
+.scroll-up-btn:hover {
+    transform: scale(1.1) rotate(180deg);
+}
+.scroll-up-btn-show {
+    opacity: 1;
+    pointer-events: all;
+}
+
 /* STYLE DU HEADER */
 .header-bg {
     background-image: url(../assets/img_general/HeaderFond.png);

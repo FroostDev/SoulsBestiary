@@ -25,6 +25,9 @@
 
     <!-- Structure du main -->
     <main>
+        <a href="#" class="scroll-up-btn"><img
+                src="assets/img_general/scroll_arrow.svg" alt=""></a>
+
         <!-- Landing page -->
         <section class="landing-page">
             <div class="landing-bg" data-class="FadeIn"><img src="assets/img_index/EldenRingTopImage.png"
@@ -39,11 +42,14 @@
 
         <!-- Presentation du site -->
         <section class="presentation-zone">
-            <h3 data-class="FadeIn" data-offset="100" data-delay="50">Bienvenue sur Souls Bestiary, le guide ultime des mondes Souls.</h3>
-            <p data-class="FadeIn" data-offset="100" data-delay="50">Les terres désolées de Lordran, Yharnam et l’Entre-terre regorgent d’ennemis aussi mystérieux que
+            <h3 data-class="FadeIn" data-offset="100" data-delay="50">Bienvenue sur Souls Bestiary, le guide ultime des
+                mondes Souls.</h3>
+            <p data-class="FadeIn" data-offset="100" data-delay="50">Les terres désolées de Lordran, Yharnam et
+                l’Entre-terre regorgent d’ennemis aussi mystérieux que
                 redoutables. De simples créatures errantes aux boss les plus légendaires, chaque adversaire possède une
                 histoire, une stratégie et un danger unique.</p>
-            <p data-class="FadeIn" data-offset="100" data-delay="50">Sur <b>Souls Bestiary</b>, explorez les secrets du bestiaire des jeux Dark Souls, Bloodborne, Elden Ring
+            <p data-class="FadeIn" data-offset="100" data-delay="50">Sur <b>Souls Bestiary</b>, explorez les secrets du
+                bestiaire des jeux Dark Souls, Bloodborne, Elden Ring
                 et bien plus encore. Apprenez à comprendre vos ennemis, plongez dans leur secret et découvrez comment
                 les vaincre. Que vous soyez un vétéran cherchant à percer les derniers mystères ou un nouvel Éveillé en
                 quête de réponses, ce grimoire numérique vous guidera à travers les ténèbres.</p>
@@ -54,7 +60,7 @@
         <!-- Découvrir les mobs -->
         <section class="discover-zone">
             <h3 data-class="FadeIn" data-offset="100">Qu'allez-vous découvrir dans ce bestiaire?</h3>
-            <div class="discover-img-zone" >
+            <div class="discover-img-zone">
                 <div class="discover-img-box" data-class="FadeIn" data-offset="100">
                     <div class="discover-img"><img src="assets/img_index/BossImg.png"
                             alt="Une image de Malenia le boss le plus complexe d'Elden Ring"></div>
@@ -66,8 +72,8 @@
                     <h4>Les créatures</h4>
                 </div>
             </div>
-            <a href="#" class="discover-btn" data-class="FadeIn" data-offset="100" data-delay="50"><img src="assets/img_index/DiscoverBtn.svg"
-                    alt="Découvrir le bestiaire"></a>
+            <a href="#" class="discover-btn" data-class="FadeIn" data-offset="100" data-delay="50"><img
+                    src="assets/img_index/DiscoverBtn.svg" alt="Découvrir le bestiaire"></a>
         </section>
     </main>
 
@@ -80,6 +86,7 @@
 
     <script src="js/addclass.js"></script>
     <script src="js/fireparticles.js"></script>
+    <script src="js/scrollup.js"></script>
 </body>
 
 </html>
