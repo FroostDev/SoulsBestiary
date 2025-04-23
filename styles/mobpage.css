@@ -1,0 +1,72 @@
+/* Image du boss sur le côté */
+.boss-img {
+    width: 850px;
+    height: 850px;
+    position: fixed;
+    bottom: -270px;
+    left: -200px;
+    animation: SlideIn 1s ease-in-out forwards;
+    object-fit: contain;
+}
+
+@keyframes SlideIn {
+    from {
+        transform: translateX(-100%) translateY(100px);
+    }
+    to {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+
+/* Zone des informations */
+.grid-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+.info-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 128px;
+}
+
+.principal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.principal-info h1 {
+    font-size: 40px;
+}
+
+.game_info {
+    font-weight: bold;
+}
+
+/* Liste des forces et faiblesse */
+
+.characteristic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.strength, .weakness {
+    display: flex;
+    flex-direction: column;
+}
+
+.strength ul, .weakness ul {
+    padding: 0;
+    margin: 0;
+}
+
+.strength li, .weakness li {
+    list-style: none;
+    color: var(--white);
+    font-family: var(--text-font);
+    font-size: 16px;
+}

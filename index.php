@@ -72,7 +72,7 @@
                     <h4>Les créatures</h4>
                 </div>
             </div>
-            <a href="#" class="discover-btn" data-class="FadeIn" data-offset="100" data-delay="50"><img
+            <a href="pages/bestiary.php" class="discover-btn" data-class="FadeIn" data-offset="100" data-delay="50"><img
                     src="assets/img_index/DiscoverBtn.svg" alt="Découvrir le bestiaire"></a>
         </section>
     </main>

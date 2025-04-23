@@ -1,6 +1,6 @@
 <?php 
-    $footer = '<footer>
-                    <div class="footer-bg"></div>
+    $footer = '
+                <footer>
                     <a href="#">Bestiaire</a>
                     <div class="copyright">
                         <h5>Souls Bestiary</h5>

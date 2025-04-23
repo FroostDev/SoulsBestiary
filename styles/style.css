@@ -108,6 +108,7 @@ img {
     position: fixed;
     z-index: 1;
     background-repeat: repeat-x;
+    pointer-events: none;
 }
 
 header {

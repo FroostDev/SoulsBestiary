@@ -3,7 +3,7 @@ var ctx = canva.getContext("2d");
 
 // Tableau de particules avec position x/y et vitesse x/y
 let particles = [
-    { x: 0, y: window.innerHeight - 5, vx: 0.5, vy: 1.5 },
+    { x: 0, y: window.innerHeight - 5, vx: 0.5, vy: 1.5},
     { x: 0, y: window.innerHeight - 10, vx: -0.3, vy: 2 },
     { x: 0, y: window.innerHeight - 15, vx: 0.2, vy: 1.8 },
     { x: 0, y: window.innerHeight - 20, vx: -0.4, vy: 2.2 },
