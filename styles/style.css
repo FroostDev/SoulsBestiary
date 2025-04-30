@@ -167,3 +167,21 @@ footer * {
     z-index: -1;
     bottom: 0;
 }
+
+/* Style de scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1d18;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--title-color);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--title-color);
+  }

@@ -78,5 +78,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Particules de feu en fond -->
+    <canvas class="fire-particles"></canvas>
+
+    <!-- Affiche le template du footer -->
+    <?php require '../templates/footer.php';
+    echo $footer; ?>
+
+    <script src="../js/fireparticles.js"></script>
 </body>
 </html>

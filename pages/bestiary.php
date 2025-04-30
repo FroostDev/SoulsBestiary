@@ -18,6 +18,8 @@
 </head>
 
 <body>
+    <?php require "../modeles/modele.php" ?>
+
     <!-- Affiche le template du header -->
     <?php require '../templates/header.php';
     echo $header; ?>
@@ -39,6 +41,55 @@
             </div>
         </section>
 
+        <!-- Menu commentaires -->
+        <div class="comment-section">
+            <?php
+            // Si le bouton envoyé est cliqué
+            if (isset($_POST['clic'])) {
+                // Je vérifie une deuxième fois si les variables sont vides
+                $utilisateur = !empty($_POST['utilisateur']) ? $_POST['utilisateur'] : "";
+                $commentaire = !empty($_POST['commentaire']) ? nl2br($_POST['commentaire']) : "";
+
+                if (!empty($utilisateur) && !empty($commentaire)) {
+                    // J'ajoute le commentaire dans la bdd
+                    Comments($utilisateur, $commentaire);
+                    
+                    header('Location: bestiary.php');
+                    exit();
+                }
+            } else {
+                $message = "Erreur";
+            }
+            ?>
+
+            <div class="comment-list">
+                <?php
+                $comments = ShowComments();
+                foreach ($comments as $com): ?>
+
+                    <div class="comment-user-comment">
+                        <div class="comment-info">
+                            <p><?= htmlspecialchars($com['username']) ?></p>
+                            <p class="hour"><?= htmlspecialchars($com['hour']) ?></p>
+                        </div>
+                        <p class="comment"><?= $com['comment'] ?></p>
+                    </div>
+
+                <?php endforeach; ?>
+            </div>
+
+            <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" class="comment-form">
+                <div class="form-line">
+                    <label for="pseudo"></label>
+                    <input type="text" id="pseudo" placeholder="Pseudonyme" name="utilisateur" required>
+                </div>
+                <textarea name="commentaire" id="" placeholder="Votre message" required></textarea>
+                <button class="submit" name="clic" value="ok">Envoyer</button>
+            </form>
+
+            <div class="open-close">Un avis ?</div>
+        </div>
+
         <section class="bestiary-zone">
             <div class="research-and-filter">
                 <div class="search-bar">
@@ -57,17 +108,17 @@
 
                     <div class="filter-menu">
                         <label>
-                            <input type="checkbox" name="boss" checked>
-                            Boss
+                            <input type="checkbox" name="elden_ring" checked>
+                            Elden Ring
                         </label>
                         <label>
-                            <input type="checkbox" name="mob" checked>
-                            Mobs
+                            <input type="checkbox" name="dark_souls" checked>
+                            Dark Souls
                         </label>
                     </div>
                 </button>
             </div>
-            
+
             <div class="bestiary-container">
                 <!-- <div class="case" data-class="FadeIn" data-offset="150">
                     <a href="mobpage.php">
@@ -77,39 +128,37 @@
                     <h3>Godfrey The First Lord</h3>
                 </div> -->
 
-                <?php 
-                    $bestiary = "";
+                <?php
+                $bestiary = "";
 
-                    require '../modeles/modele.php';
 
-                    
-                    $entity = BestiaryList();
+                $entity = BestiaryList();
 
-                    foreach($entity AS $mobs) {
-                        if($mobs['type'] == "Boss") {
-                            $bestiary .= "<div class='case boss' data-class='FadeIn' data-offset='150'>
-                                            <a href='mobpage.php?nom=".$mobs['nom']."&game=".$mobs['game_name']."&editor=".$mobs['editor']."&release=".$mobs['release_date']."&region=".$mobs['region']."&hp=".$mobs['hp']."&id=".$mobs['id_entity']."'>
-                                                <img class='mob-img' src='../assets/img_bestiary/mobs/".$mobs['id_entity'].".webp'
+                foreach ($entity as $mobs) {
+                    if ($mobs['idgame'] == "1") {
+                        $bestiary .= "<div class='case elden_ring' data-class='FadeIn' data-offset='150'>
+                                            <a href='mobpage.php?nom=" . $mobs['nom'] . "&game=" . $mobs['game_name'] . "&editor=" . $mobs['editor'] . "&release=" . $mobs['release_date'] . "&region=" . $mobs['region'] . "&hp=" . $mobs['hp'] . "&id=" . $mobs['id_entity'] . "'>
+                                                <img class='mob-img' src='../assets/img_bestiary/mobs/" . $mobs['id_entity'] . ".webp'
                                                 alt='' loading='lazy'>
                                             </a>
-                                            <h3>".$mobs['nom']."</h3>
+                                            <h3>" . $mobs['nom'] . "</h3>
                                     </div>";
-                        }
-
-                        if($mobs['type'] == "Mob") {
-                            $bestiary .= "<div class='case mob' data-class='FadeIn' data-offset='150'>
-                                            <a href='mobpage.php?nom=".$mobs['nom']."&game=".$mobs['game_name']."&editor=".$mobs['editor']."&release=".$mobs['release_date']."&region=".$mobs['region']."&hp=".$mobs['hp']."&id=".$mobs['id_entity']."'>
-                                                <img class='mob-img' src='../assets/img_bestiary/mobs/".$mobs['id_entity'].".webp'
-                                                alt='' loading='lazy'>
-                                            </a>
-                                            <h3>".$mobs['nom']."</h3>
-                                    </div>";
-                        }
                     }
 
-                    echo $bestiary;
+                    if ($mobs['idgame'] == "2") {
+                        $bestiary .= "<div class='case dark_souls' data-class='FadeIn' data-offset='150'>
+                                            <a href='mobpage.php?nom=" . $mobs['nom'] . "&game=" . $mobs['game_name'] . "&editor=" . $mobs['editor'] . "&release=" . $mobs['release_date'] . "&region=" . $mobs['region'] . "&hp=" . $mobs['hp'] . "&id=" . $mobs['id_entity'] . "'>
+                                                <img class='mob-img' src='../assets/img_bestiary/mobs/" . $mobs['id_entity'] . ".webp'
+                                                alt='' loading='lazy'>
+                                            </a>
+                                            <h3>" . $mobs['nom'] . "</h3>
+                                    </div>";
+                    }
+                }
+
+                echo $bestiary;
                 ?>
-            
+
             </div>
         </section>
     </main>
@@ -124,6 +173,7 @@
     <script src="../js/addclass.js"></script>
     <script src="../js/fireparticles.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/commentsection.js"></script>
 </body>
 
 </html>

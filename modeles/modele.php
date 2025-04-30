@@ -17,9 +17,31 @@ function Connexion() {
     return $bdd;
 }
 
+function Comments($utilisateur, $commentaire) {
+    $bdd = Connexion();
+
+    // Génère l'heure actuelle
+    $heure = date('Y-m-d H:i:s');
+
+    $requete = "INSERT INTO comments (username, `hour`, comment) VALUES ('$utilisateur', '$heure', '$commentaire')";
+    $cmd = $bdd->exec($requete);
+}
+
+function ShowComments() {
+    $bdd = Connexion();
+
+    $reponse = $bdd->query("SELECT username, `hour`, comment FROM comments");
+
+    $comments = $reponse->fetchAll(PDO::FETCH_ASSOC);
+
+    $bdd = null;
+
+    return $comments;
+}
+
 function BestiaryList() {
     $bdd = Connexion();
-    $reponse = $bdd->query("SELECT game_name, editor, DATE_FORMAT(release_date, '%d/%m/%Y') AS release_date, id_entity, entity.type AS 'type', entity.name AS nom, region, hp FROM game INNER JOIN entity ON game.id_game = entity.id_game");
+    $reponse = $bdd->query("SELECT game_name, editor, DATE_FORMAT(release_date, '%d/%m/%Y') AS release_date, game.id_game as idgame, id_entity, entity.type AS 'type', entity.name AS nom, region, hp FROM game INNER JOIN entity ON game.id_game = entity.id_game ORDER BY nom ASC");
 
     $entity = $reponse->fetchAll(PDO::FETCH_ASSOC);
 

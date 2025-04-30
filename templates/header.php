@@ -5,7 +5,6 @@
                     <nav>
                         <a href="../index.php">Accueil</a>
                         <a href="../pages/bestiary.php">Bestiaire</a>
-                        <a href="#">A propos</a>
                     </nav>
                 </header>';
 ?>

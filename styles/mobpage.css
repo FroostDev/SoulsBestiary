@@ -3,7 +3,7 @@
     width: 850px;
     height: 850px;
     position: fixed;
-    bottom: -270px;
+    bottom: -280px;
     left: -200px;
     animation: SlideIn 1s ease-in-out forwards;
     object-fit: contain;
@@ -23,7 +23,7 @@
 .grid-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px);
 }
 
 .info-zone {

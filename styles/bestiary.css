@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 /* STYLE DE LA LANDING PAGE */
 .landing-page {
     display: flex;
@@ -42,6 +46,135 @@
 }
 .scroll-btn:hover {
     transform: scale(1.1);
+}
+
+/* Style du menu commentaires */
+.comment-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background: #131d23;
+    padding: 0px 64px;
+    transform: translate(100%);
+    transition: 0.4s;
+}
+
+.open-close {
+    position: absolute;
+    right: 100%;
+    bottom: 32px;
+    white-space: pre;
+    color: var(--title-color);
+    font-family: var(--title-font);
+    background: #131d23;
+    padding: 8px 32px;
+    border-radius: 16px 0px 0px 16px;
+    cursor: pointer;
+}
+
+.opened {
+    transform: translate(0px);
+}
+
+.comment-list {
+    height: 400px;
+    width: 350px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.comment-form {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    border: 1px solid var(--title-color);
+    border-radius: 4px;
+    padding: 16px 32px;
+    width: 300px;
+}
+
+.comment-form .form-line {
+    border-bottom: 1px solid var(--title-color);
+    width: 100%;
+}
+
+.comment-form textarea {
+    resize: none; /*Empeche de changer la taille du textarea */
+    border: 1px solid var(--title-color);
+    border-radius: 4px;
+    padding: 4px;
+    height: 100px;
+    width: 100%;
+}
+
+.comment-form * {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-family: var(--text-font);
+    font-size: 16px;
+}
+
+.comment-form *::placeholder {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.submit {
+    background: var(--title-color);
+    color: #110f50;
+    cursor: pointer;
+    width: fit-content;
+    padding: 8px 32px;
+    border-radius: 4px;
+    font-family: var(--title-font);
+}
+
+.comment-section hr {
+    width: 90%;
+    border-color: var(--title-color);
+    border-width: 1px;
+}
+
+.comment-info {
+    display: flex;
+}
+
+.hour {
+    color: var(--title-color);
+}
+
+.comment-info p:first-child {
+    font-weight: 700;
+}
+
+.comment-user-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-user-comment p:last-child {
+    margin-left: 32px;
+}
+
+.comment {
+    line-height: 90%;
 }
 
 /* Style de la bar de recherche et du filtre */
@@ -99,8 +232,11 @@
     border: 1px var(--title-color) solid;
     position: absolute;
     top: 100%;
+    right: 0;
     clip-path: inset(0 0 100% 0);
     transition: 0.4s;
+    width: 100px;
+    z-index: 5;
 }
 
 .filter-menu-open {
@@ -134,19 +270,20 @@
     display: block;
 }
 
-.bestiary-container.mob>.mob,
-.bestiary-container.boss>.boss{
+.bestiary-container.elden_ring>.elden_ring,
+.bestiary-container.dark_souls>.dark_souls{
 	display: none;
 }
 
 /* Style du bestiaire */
 .bestiary-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 200px);
     gap: 16px;
     max-width: 1200px;
-    padding: 64px 256px;
     margin: 0 auto;
+    padding: 64px 0;
+    width: fit-content;
 }
 
 .case {
