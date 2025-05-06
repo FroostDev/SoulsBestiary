@@ -53,7 +53,7 @@
                 if (!empty($utilisateur) && !empty($commentaire)) {
                     // J'ajoute le commentaire dans la bdd
                     Comments($utilisateur, $commentaire);
-                    
+
                     header('Location: bestiary.php');
                     exit();
                 }
@@ -97,7 +97,7 @@
                         <path fill="#FFEABC"
                             d="M20.031 20.79c.46.46 1.17-.25.71-.7l-3.75-3.76a7.9 7.9 0 0 0 2.04-5.31c0-4.39-3.57-7.96-7.96-7.96s-7.96 3.57-7.96 7.96s3.57 7.96 7.96 7.96c1.98 0 3.81-.73 5.21-1.94zM4.11 11.02c0-3.84 3.13-6.96 6.96-6.96c3.84 0 6.96 3.12 6.96 6.96s-3.12 6.96-6.96 6.96c-3.83 0-6.96-3.12-6.96-6.96" />
                     </svg>
-                    <input placeholder="Rechercher"></input>
+                    <input placeholder="Rechercher" id="search-input" autocomplete="off"></input>
                 </div>
                 <button class="filter">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -173,6 +173,7 @@
     <script src="../js/addclass.js"></script>
     <script src="../js/fireparticles.js"></script>
     <script src="../js/filter.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/commentsection.js"></script>
 </body>
 

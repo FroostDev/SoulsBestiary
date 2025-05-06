@@ -71,3 +71,16 @@ function Weakness($entityId) {
 
     return $charac;
 }
+
+
+// Fonction SQL de la barre de la recherche
+function searchMobs($query) {
+    $bdd = Connexion();
+    $req = $bdd->prepare("SELECT e.*, game_name, g.editor, g.release_date 
+                         FROM entity e 
+                         JOIN game g ON e.id_game = g.id_game 
+                         WHERE e.name LIKE :query 
+                         ORDER BY game_name");
+    $req->execute(['query' => '%' . $query . '%']);
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
