@@ -28,11 +28,11 @@
         <div class="monster">
             <img src="../assets/minigame/GuardianBoss.gif" alt="Une image d'un chevalier rouge">
             <div class="monster-shadow"></div>
-            <h2>Vie : <span class="monster-hp">100</span></h2>
+            <h2>Vie : <span class="monster-hp">10</span></h2>
         </div>
 
         <div class="hero">
-            <h2>Temps : <span class="timer">15</span>s</h2>
+            <h2>Temps : <span class="timer">5</span>s</h2>
             <img src="../assets/minigame/Hero.png" alt="Une image de votre hero">
         </div>
     </main>

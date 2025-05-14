@@ -1,9 +1,11 @@
 <?php
+// Variable pour la connexion
 $servername = "localhost";
 $database = "souls_bestiary";
 $username = "root";
 $password = "";
 
+// Fonction de connexion a la bdd
 function Connexion() {
     global $servername, $database, $username, $password;
     try {
@@ -17,6 +19,7 @@ function Connexion() {
     return $bdd;
 }
 
+// Fonction pour insérer un commentaire dans la bdd
 function Comments($utilisateur, $commentaire) {
     $bdd = Connexion();
 
@@ -27,6 +30,7 @@ function Comments($utilisateur, $commentaire) {
     $cmd = $bdd->exec($requete);
 }
 
+// Fonction pour afficher les commentaires dans le menu commentaires
 function ShowComments() {
     $bdd = Connexion();
 
@@ -39,9 +43,10 @@ function ShowComments() {
     return $comments;
 }
 
-function BestiaryList() {
+// Fonction qui affiche les entité de la bdd dans le bestaire
+function BestiaryList($ordre) {
     $bdd = Connexion();
-    $reponse = $bdd->query("SELECT game_name, editor, DATE_FORMAT(release_date, '%d/%m/%Y') AS release_date, game.id_game as idgame, id_entity, entity.type AS 'type', entity.name AS nom, region, hp FROM game INNER JOIN entity ON game.id_game = entity.id_game ORDER BY nom ASC");
+    $reponse = $bdd->query("SELECT game_name, editor, DATE_FORMAT(release_date, '%d/%m/%Y') AS release_date, game.id_game as idgame, id_entity, entity.type AS 'type', entity.name AS nom, region, hp FROM game INNER JOIN entity ON game.id_game = entity.id_game ORDER BY nom $ordre");
 
     $entity = $reponse->fetchAll(PDO::FETCH_ASSOC);
 
@@ -50,6 +55,7 @@ function BestiaryList() {
     return $entity;
 }
 
+// Affiche les forces dans la page d'information de l'entité
 function Strength($entityId) {
     $bdd = Connexion();
     $reponse = $bdd->query("SELECT charac_name FROM characteristic INNER JOIN charac_entity ON characteristic.id_charac=charac_entity.id_charac INNER JOIN entity ON charac_entity.id_entity=entity.id_entity WHERE entity.id_entity=$entityId AND charac_type='force'");
@@ -61,6 +67,7 @@ function Strength($entityId) {
     return $charac;
 }
 
+// Affiche les faiblesses dans la page d'information de l'entité
 function Weakness($entityId) {
     $bdd = Connexion();
     $reponse = $bdd->query("SELECT charac_name FROM characteristic INNER JOIN charac_entity ON characteristic.id_charac=charac_entity.id_charac INNER JOIN entity ON charac_entity.id_entity=entity.id_entity WHERE entity.id_entity=$entityId AND charac_type='faiblesse'");
@@ -73,14 +80,15 @@ function Weakness($entityId) {
 }
 
 
-// Fonction SQL de la barre de la recherche
+// Fonction SQL de la barre de recherche
 function searchMobs($query) {
     $bdd = Connexion();
-    $req = $bdd->prepare("SELECT e.*, game_name, g.editor, g.release_date 
-                         FROM entity e 
-                         JOIN game g ON e.id_game = g.id_game 
-                         WHERE e.name LIKE :query 
-                         ORDER BY game_name");
-    $req->execute(['query' => '%' . $query . '%']);
-    return $req->fetchAll(PDO::FETCH_ASSOC);
+    $query = '%' . $query . '%';  // Ajout de '%' au début et à la fin de la recherche
+    $sql = "SELECT e.*, game_name, g.editor, g.release_date 
+            FROM entity e 
+            JOIN game g ON e.id_game = g.id_game 
+            WHERE e.name LIKE '$query' 
+            ORDER BY game_name";
+    $result = $bdd->query($sql);
+    return $result->fetchAll(PDO::FETCH_ASSOC);
 }

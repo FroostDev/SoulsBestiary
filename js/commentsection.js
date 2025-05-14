@@ -1,6 +1,8 @@
+// Variables
 const menu_btn = document.querySelector('.open-close')
 const menu = document.querySelector('.comment-section')
 
+// Changer le texte ouvert/fermer du menu commentaires
 menu_btn.addEventListener('click', () => {
     menu.classList.toggle('opened')
 
@@ -10,14 +12,3 @@ menu_btn.addEventListener('click', () => {
         menu_btn.innerText = "Un avis ?"
     }
 })
-
-
-// Pour que le scroll de la zone de commentaire commence en bas
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const chatContainer = document.querySelector('.comment-list');
-        if (chatContainer) {
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
-    }, 100); // essaie aussi 200 ms si nécessaire
-});

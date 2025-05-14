@@ -1,3 +1,4 @@
+// Script de monsieur Lehmann
 document.addEventListener("scroll", addClass, {passive: true});
         function addClass(){
             document.querySelectorAll("[data-class]").forEach(e=>{
