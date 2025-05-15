@@ -12,3 +12,14 @@ menu_btn.addEventListener('click', () => {
         menu_btn.innerText = "Un avis ?"
     }
 })
+
+// Pour que la section commentaire soit scroller en bas car le premier message est tout en bas
+document.addEventListener('DOMContentLoaded', () => {
+  const chatContainer = document.querySelector('.comment-list');
+  if (chatContainer) {
+    // Attendre que les messages soient chargés
+    setTimeout(() => {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 100);
+  }
+});
