@@ -84,7 +84,7 @@
             <!-- Structure du main -->
             <main>
                 <section class="landing-page">
-                    <div class="landing-bg" data-class="FadeIn"><img src="../assets/img_bestiary/EldenRingTopImage.png"
+                    <div class="landing-bg" data-class="FadeIn"><img src="../assets/img_bestiary/EldenRingTopImage2.png"
                             alt="Une image de Malenia, se battant contre Radhan."></div>
 
                     <div class="landing-line">

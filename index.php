@@ -29,7 +29,7 @@
             <main>
                 <!-- Landing page -->
                 <section class="landing-page">
-                    <div class="landing-bg" data-class="FadeIn"><img src="assets/img_index/EldenRingTopImage.png"
+                    <div class="landing-bg" data-class="FadeIn"><img src="assets/img_index/EldenRingTopImage2.png"
                             alt="Une image du chevalier Vyke, se tenant a genoux s'appuyant sur son épée."></div>
                     <div class="landing-title">
                         <h2 data-class="FadeIn" data-delay="300">Éveillés des Cendres, Connaissez Vos Ennemis</h2>

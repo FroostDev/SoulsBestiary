@@ -2,6 +2,10 @@ body {
     overflow-x: hidden;
 }
 
+h2 {
+    text-align: left;
+}
+
 /* STYLE DE LA LANDING PAGE */
 .landing-page {
     display: flex;
@@ -9,15 +13,18 @@ body {
     align-items: center;
     justify-content: end;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
 
 .landing-bg {
     position: absolute;
-    top: 0;
+    top: -10%;
     left: 50%;
     transform: translate(-50%);
     z-index: -1;
-    width: 1200px;
+    /* width: 1200px; */
+    width: max(1000px, 80%);
     opacity: 0;
 }
 
@@ -244,8 +251,7 @@ body {
     clip-path: inset(0 0 100% 0);
     transition: 0.4s;
     width: 150px;
-    z-index: 5;
-    z-index: 0;
+    z-index: 1;
 }
 
 .filter-menu-open {
@@ -291,12 +297,13 @@ body {
 /* Style du bestiaire */
 .bestiary-container {
     display: grid;
-    grid-template-columns: repeat(4, 200px);
+    grid-template-columns: repeat(auto-fill, 200px);
     gap: 16px;
-    max-width: 1200px;
     margin: 0 auto;
     padding: 64px 0;
-    width: fit-content;
+    max-width: 864px;
+    justify-content: center;
+    justify-items: center;
 }
 
 .case {
@@ -330,5 +337,23 @@ body {
     }
     to {
         opacity: 1;
+    }
+}
+
+/* Reponsive */
+@media(width<1020px){
+    .landing-bg {
+        top: 15%;
+        width: 100%;
+    }
+}
+
+@media(width<800px){
+    .landing-bg {
+        top: 5%;
+        width: 150%;
+    }
+    .opened .open-close {
+        left: 0;
     }
 }
