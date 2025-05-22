@@ -41,6 +41,10 @@ h5 {
     font-size: 32px;
 }
 
+@view-transition {
+    navigation:auto;
+}
+
 a {
     text-decoration: none;
     color: var(--title-color);
